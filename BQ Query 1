@@ -1,0 +1,33 @@
+
+import numpy as np
+import pandas as pd
+import matplotlib.pylab as plt
+from decimal import *
+
+get_ipython().magic('matplotlib inline')
+from matplotlib.pylab import rcParams
+rcParams['figure.figsize'] = 15, 6
+
+from scipy import stats
+
+import statsmodels.api as sm
+import statsmodels.tsa as tsa
+
+from statsmodels.graphics.api import qqplot
+from statsmodels.tsa.base import datetools
+from statsmodels.tsa.arima_model import ARIMA
+from statsmodels.tsa.arima_model import ARMA
+
+from statsmodels.tsa.stattools import acf  
+from statsmodels.tsa.stattools import pacf
+from statsmodels.tsa.seasonal import seasonal_decompose
+
+from datetime import datetime
+
+desired_width = 250
+pd.set_option('display.width',desired_width)
+
+from pandasql import PandaSQL 
+pdsql = PandaSQL()
+
+get_ipython().run_cell_magic('sql', '--module ipfix', 'select i.* from ipfix.ipfix i limit 10000'   

@@ -1,0 +1,9 @@
+
+
+
+
+df1 = pd.read_gbq("select Timestamp, bytes, dst_addr, cast(dst_port as integer) as dst_port, \
+  cast(duration_ms as integer) as duration_ms, protocol, flow_direction \
+  FROM ipfix.ipfix \
+   where Timestamp between timestamp('2016-11-07 00:00:00') and timestamp('2016-11-08 23:59:59')  \
+     and protocol in('udp','tcp') and (dst_port in ('53') )" , project_id="network-sec-analytics")
